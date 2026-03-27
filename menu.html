@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friedays Bocaue| Menu</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/menu.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <header class="main-header">
+        <h1><span class="material-symbols-outlined text-2xl" style="color: var(--clr-primary);">
+                restaurant</span> Friedays Bocaue Menu
+        </h1>
+        <div class="user-greeting" id="userGreeting">Welcome!</div>
+    </header>
+
+    <div class="menu-layout">
+        <main class="menu-section">
+            <div class="menu-controls">
+                <div class="search-box">
+                    <input type="text" id="menuSearch" placeholder="Search for food, drinks, etc...">
+                    <span class="search-icon">🔍</span>
+                </div>
+
+                <div class="filter-container">
+                    <button class="filter-btn active" data-category="All">All</button>
+                    <button class="filter-btn" data-category="Chicken & Fried Items">Chicken</button>
+                    <button class="filter-btn" data-category="Sides & Sandwiches">Sides</button>
+                    <button class="filter-btn" data-category="Beverages">Drinks</button>
+                    <button class="filter-btn" data-category="Pasta & Mains">Mains</button>
+                </div>
+            </div>
+            <div id="menuContainer"></div>
+        </main>
+
+        <aside class="cart-section">
+            <div class="cart-card">
+                <h2>Your Order</h2>
+                <div id="cartItems" class="cart-items">
+                    <p class="empty-cart">Your cart is empty.</p>
+                </div>
+
+                <div class="cart-summary">
+                    <div class="summary-line">
+                        <span>Subtotal</span>
+                        <span id="subtotal">₱0.00</span>
+                    </div>
+                    <div class="summary-line">
+                        <span>Tax (12%)</span>
+                        <span id="tax">₱0.00</span>
+                    </div>
+                    <div class="summary-line" id="deliveryFeeLine" style="display: none;">
+                        <span>Delivery Fee</span>
+                        <span id="deliveryFee">₱0.00</span>
+                    </div>
+                    <div class="summary-line total">
+                        <span>Total</span>
+                        <span id="total">₱0.00</span>
+                    </div>
+                </div>
+
+                <div class="order-type-selection">
+                    <h3>Order Type *</h3>
+                    <div class="radio-group">
+                        <label><input type="radio" name="orderType" value="Pickup"> Pickup</label>
+                        <label><input type="radio" name="orderType" value="Dine In"> Dine In</label>
+                        <label><input type="radio" name="orderType" value="Delivery"> Delivery</label>
+                    </div>
+                    <p id="orderTypeError" class="error-msg"></p>
+                </div>
+
+                <button id="checkoutBtn" class="btn-primary" disabled>Proceed to Checkout</button>
+            </div>
+        </aside>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+
+</html>

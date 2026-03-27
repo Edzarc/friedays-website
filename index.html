@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friedays Bocaue| Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="brand-header">
+                <h1>Friedays Bocaue</h1>
+                <p>Crispy. Juicy. Ready.</p>
+            </div>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="username">Email or Username</label>
+                    <input type="text" id="username" placeholder="Enter your email or username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                        <button type="button" id="togglePassword" class="icon-btn" aria-label="Toggle password visibility">
+                            👁️
+                        </button>
+                    </div>
+                </div>
+                <div class="remember-group">
+                    <input type="checkbox" id="rememberMe">
+                    <label for="rememberMe">Remember me</label>
+                </div>
+                <button type="submit" class="btn-primary">Login & Order Now</button>
+            </form>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

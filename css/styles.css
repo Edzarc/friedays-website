@@ -1,0 +1,65 @@
+:root {
+    /* Chicken-inspired palette */
+    --clr-primary: #f97415; /* Deep Amber/Orange */
+    --clr-primary-hover: #c2410c;
+    --clr-secondary: #431407; /* Warm red */
+    --clr-background: #fdfdfd; /* Creamy off-white */
+    --clr-surface: #ffffff;
+    --clr-text: #451a03; /* Dark brown */
+    --clr-text-light: #78350f;
+    --clr-border: #f9edbb;
+
+    --radius: 8px;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --font-main: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--clr-background);
+    color: var(--clr-text);
+    line-height: 1.5;
+}
+
+/* Global Button Styles */
+.btn-primary, .btn-secondary {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-primary {
+    background-color: var(--clr-primary);
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: var(--clr-primary-hover);
+}
+
+.btn-primary:disabled {
+    background-color: #fca5a5;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--clr-primary);
+    color: var(--clr-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--clr-primary);
+    color: white;
+}

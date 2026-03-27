@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friedays Bocaue| Order Tracking</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/tracking.css">
+</head>
+<body>
+    <div class="tracking-container">
+        <div class="tracking-card">
+            <div class="brand-header">
+                <h1>Friedays Bocaue</h1>
+                <p>Your order is in the kitchen!</p>
+            </div>
+            
+            <div class="tracking-details">
+                <div class="order-number-box">
+                    <span>Your Order #</span>
+                    <h2 id="userOrderNumber">--</h2>
+                    <p class="order-type-badge" id="displayOrderType">Type</p>
+                </div>
+
+                <div class="live-queue">
+                    <div class="serving-now">
+                        <span>Now Serving</span>
+                        <h3 id="nowServingNumber" class="pulse">--</h3>
+                    </div>
+                    <div class="queue-status">
+                        <p id="queueMessage">Calculating your position...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <button onclick="window.location.href='menu.html'" class="btn-secondary">Place Another Order</button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/tracking.js"></script>
+</body>
+</html>
