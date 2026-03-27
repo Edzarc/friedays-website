@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Friedays Bocaue</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-wrapper">
+            <h1><span class="material-symbols-outlined text-2xl" style="color: var(--clr-primary);">shopping_bag</span> Checkout</h1>
+            <div class="header-actions">
+                <a href="menu.html" class="back-link" title="Back to Menu">
+                    <span class="material-symbols-outlined">arrow_back</span> Back to Menu
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="checkout-layout">
+        <main class="checkout-main">
+            <!-- CUSTOMER INFORMATION SECTION -->
+            <section class="checkout-section">
+                <div class="section-header">
+                    <h2><span class="material-symbols-outlined">person</span> Customer Information</h2>
+                    <button id="editInfoBtn" class="edit-btn" type="button">Edit</button>
+                </div>
+
+                <div id="customerInfoDisplay" class="info-display">
+                    <div class="info-group">
+                        <label>Name</label>
+                        <p id="displayName">-</p>
+                    </div>
+                    <div class="info-group">
+                        <label>Email</label>
+                        <p id="displayEmail">-</p>
+                    </div>
+                    <div class="info-group">
+                        <label>Phone</label>
+                        <p id="displayPhone">-</p>
+                    </div>
+                    <div class="info-group">
+                        <label>Delivery Address</label>
+                        <p id="displayDeliveryAddress">-</p>
+                    </div>
+                </div>
+
+                <div id="customerInfoEdit" class="info-edit" style="display: none;">
+                    <div class="form-group">
+                        <label for="editName">Name *</label>
+                        <input type="text" id="editName" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editEmail">Email *</label>
+                        <input type="email" id="editEmail" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editPhone">Phone *</label>
+                        <input type="tel" id="editPhone" placeholder="+63 9XX-XXX-XXXX" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editDeliveryAddress">Delivery Address *</label>
+                        <textarea id="editDeliveryAddress" placeholder="Street, City, Province, ZIP" rows="2" required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button id="saveInfoBtn" class="btn-primary" type="button">Save Changes</button>
+                        <button id="cancelInfoBtn" class="btn-secondary" type="button">Cancel</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CUSTOMER NOTES SECTION -->
+            <section class="checkout-section">
+                <div class="section-header">
+                    <h2><span class="material-symbols-outlined">notes</span> Order Notes</h2>
+                </div>
+                <div class="form-group">
+                    <label for="customerNotes">Special Instructions (Optional)</label>
+                    <textarea id="customerNotes" placeholder="e.g., No onions, extra spicy, leave at front door..." rows="3"></textarea>
+                    <small class="help-text">500 character limit</small>
+                </div>
+            </section>
+
+            <!-- PAYMENT METHOD SECTION -->
+            <section class="checkout-section">
+                <div class="section-header">
+                    <h2><span class="material-symbols-outlined">payment</span> Payment Method</h2>
+                </div>
+                <div class="payment-options">
+                    <label class="payment-option">
+                        <input type="radio" name="paymentMethod" value="Cash" required>
+                        <div class="payment-card">
+                            <span class="material-symbols-outlined">local_atm</span>
+                            <div>
+                                <div class="payment-name">Cash on Delivery</div>
+                                <small>Pay when order arrives</small>
+                            </div>
+                        </div>
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="paymentMethod" value="GCash" required>
+                        <div class="payment-card">
+                            <span class="material-symbols-outlined">mobile_friendly</span>
+                            <div>
+                                <div class="payment-name">GCash</div>
+                                <small>Digital payment via GCash</small>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+                <p id="paymentError" class="error-msg" style="display: none;">Please select a payment method</p>
+            </section>
+        </main>
+
+        <!-- ORDER SUMMARY SIDEBAR -->
+        <aside class="checkout-summary">
+            <div class="summary-card">
+                <h2><span class="material-symbols-outlined">receipt_long</span> Order Summary</h2>
+
+                <!-- ORDER ITEMS -->
+                <div class="summary-items-section">
+                    <h3>Items</h3>
+                    <div id="summaryItems" class="summary-items">
+                        <!-- Items will be populated here -->
+                    </div>
+                </div>
+
+                <!-- TIER SAVINGS CALLOUT -->
+                <div id="tierSavingsCallout" class="tier-savings-callout" style="display: none;">
+                    <div class="callout-icon">
+                        <span class="material-symbols-outlined">trending_up</span>
+                    </div>
+                    <div class="callout-content">
+                        <p class="callout-title">You Save with Your <span id="tierBadge">Tier</span> Membership!</p>
+                        <p class="callout-amount" id="tierSavingsAmount">₱0.00</p>
+                    </div>
+                </div>
+
+                <!-- BREAKDOWN -->
+                <div class="summary-breakdown">
+                    <div class="breakdown-row">
+                        <span>Subtotal</span>
+                        <span id="summarySubtotal">₱0.00</span>
+                    </div>
+
+                    <div class="breakdown-row" id="generalDiscountRow" style="display: none;">
+                        <span>General Discount</span>
+                        <span id="summaryGeneralDiscount" class="discount-value">-₱0.00</span>
+                    </div>
+
+                    <div class="breakdown-row tier-discount-row" id="tierDiscountRow" style="display: none;">
+                        <span id="tierDiscountLabel">Silver Tier Discount</span>
+                        <span id="summaryTierDiscount" class="discount-value">-₱0.00</span>
+                    </div>
+
+                    <div class="breakdown-row">
+                        <span>Subtotal After Discount</span>
+                        <span id="summaryDiscountedSubtotal">₱0.00</span>
+                    </div>
+
+                    <div class="breakdown-row">
+                        <span>Tax (12%)</span>
+                        <span id="summaryTax">₱0.00</span>
+                    </div>
+
+                    <div class="breakdown-row" id="deliveryFeeRow" style="display: none;">
+                        <span>Delivery Fee</span>
+                        <span id="summaryDeliveryFee">₱0.00</span>
+                    </div>
+
+                    <div class="breakdown-row total">
+                        <span>Order Total</span>
+                        <span id="summaryTotal">₱0.00</span>
+                    </div>
+                </div>
+
+                <!-- ORDER TYPE -->
+                <div class="order-type-section">
+                    <h3>Order Type *</h3>
+                    <div class="radio-group">
+                        <label><input type="radio" name="orderType" value="Pickup" required> Pickup</label>
+                        <label><input type="radio" name="orderType" value="Dine In" required> Dine In</label>
+                        <label><input type="radio" name="orderType" value="Delivery" required> Delivery</label>
+                    </div>
+                    <p id="orderTypeError" class="error-msg" style="display: none;">Please select an order type</p>
+                </div>
+
+                <!-- ACTION BUTTON -->
+                <button id="submitOrderBtn" class="btn-primary btn-large" type="button">Complete Order</button>
+                <button id="cancelOrderBtn" class="btn-secondary btn-secondary-full" type="button">Cancel & Back to Menu</button>
+            </div>
+        </aside>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/account.js"></script>
+    <script src="js/checkout.js"></script>
+</body>
+
+</html>

@@ -134,10 +134,13 @@ const accountModule = {
 // ============================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize user account
-    initializeAccount();
-    setupEventListeners();
-    renderAccountPage();
+    // Only run account page initialization if we're on the account page
+    if (document.getElementById('profileName')) {
+        // Initialize user account
+        initializeAccount();
+        setupEventListeners();
+        renderAccountPage();
+    }
 });
 
 function initializeAccount() {

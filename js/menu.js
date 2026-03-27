@@ -227,20 +227,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     checkoutBtn.addEventListener('click', () => {
-        const orderType = document.querySelector('input[name="orderType"]:checked');
-        if (!orderType) {
-            document.getElementById('orderTypeError').style.display = 'block';
+        // Validate order type is selected
+        const selectedOrderType = getSelectedOrderType();
+        if (!selectedOrderType) {
+            orderTypeError.style.display = 'block';
+            orderTypeError.textContent = 'Please select an order type before proceeding to checkout';
             return;
         }
 
-        Storage.set('friedays_active_order', {
-            orderNumber: Math.floor(Math.random() * 90) + 10,
-            type: orderType.value,
-            items: cart
-        });
+        // Save selected order type for checkout persistence
+        Storage.set('friedays_selected_order_type', selectedOrderType);
 
-        Storage.remove('friedays_cart');
-        window.location.href = 'tracking.html';
+        // Cart is saved automatically in updateCart()
+        // Redirect to checkout page
+        window.location.href = 'checkout.html';
     });
 
     // INITIALIZE
