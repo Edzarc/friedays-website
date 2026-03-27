@@ -55,8 +55,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartItemsContainer = document.getElementById('cartItems');
     const subtotalEl = document.getElementById('subtotal');
     const taxEl = document.getElementById('tax');
+    const deliveryFeeLine = document.getElementById('deliveryFeeLine');
+    const deliveryFeeEl = document.getElementById('deliveryFee');
     const totalEl = document.getElementById('total');
     const checkoutBtn = document.getElementById('checkoutBtn');
+    const orderTypeRadios = document.getElementsByName('orderType');
+    const orderTypeError = document.getElementById('orderTypeError');
     const userGreeting = document.getElementById('userGreeting');
 
     // Set Greeting
@@ -148,13 +152,27 @@ document.addEventListener('DOMContentLoaded', () => {
         renderCart();
     }
 
+    function getSelectedOrderType() {
+        let selected = null;
+        for (const radio of orderTypeRadios) {
+            if (radio.checked) {
+                selected = radio.value;
+                break;
+            }
+        }
+        return selected;
+    }
+
     function renderCart() {
         cartItemsContainer.innerHTML = '';
+
         if (cart.length === 0) {
             cartItemsContainer.innerHTML = '<p class="empty-cart">Your cart is empty.</p>';
             checkoutBtn.disabled = true;
             subtotalEl.textContent = '₱0.00';
             taxEl.textContent = '₱0.00';
+            deliveryFeeEl.textContent = '₱0.00';
+            deliveryFeeLine.style.display = 'none';
             totalEl.textContent = '₱0.00';
             return;
         }
@@ -182,12 +200,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         const tax = subtotal * 0.12;
+        const orderType = getSelectedOrderType();
+        const deliveryFee = (orderType === 'Delivery') ? 50 : 0;
+
         subtotalEl.textContent = formatMoney(subtotal);
         taxEl.textContent = formatMoney(tax);
-        totalEl.textContent = formatMoney(subtotal + tax);
+
+        if (deliveryFee > 0) {
+            deliveryFeeLine.style.display = 'flex';
+            deliveryFeeEl.textContent = formatMoney(deliveryFee);
+        } else {
+            deliveryFeeLine.style.display = 'none';
+            deliveryFeeEl.textContent = '₱0.00';
+        }
+
+        const total = subtotal + tax + deliveryFee;
+        totalEl.textContent = formatMoney(total);
     }
 
     // 7. CHECKOUT LOGIC
+    for (const radio of orderTypeRadios) {
+        radio.addEventListener('change', () => {
+            orderTypeError.style.display = 'none';
+            renderCart();
+        });
+    }
+
     checkoutBtn.addEventListener('click', () => {
         const orderType = document.querySelector('input[name="orderType"]:checked');
         if (!orderType) {
