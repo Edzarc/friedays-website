@@ -313,3 +313,8 @@
   color: var(--clr-secondary);
 }
 
+.menu-info .material-symbols-outlined {
+  transform: translateY(6px); 
+  font-size: 24px;
+}
+

@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <div class="menu-info">
                                     <div class="item-name">${item.name}</div>
                                     <div class="item-price">${formatMoney(item.price)}</div>
-                                    <button class="btn-secondary" onclick="addToCart(${item.id}, '${item.name}', ${item.price})">Add to Cart</button>
+                                    <button class="btn-secondary" onclick="addToCart(${item.id}, '${item.name}', ${item.price})"><span class="material-symbols-outlined">shopping_cart</span> Add to Cart</button>
                                 </div>
                             </div>
                         `).join('')}
