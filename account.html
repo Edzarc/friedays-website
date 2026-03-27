@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friedays Bocaue | My Account</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/account.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <h1><span class="material-symbols-outlined text-2xl" style="color: var(--clr-primary);">account_circle</span>
+                My Account
+            </h1>
+            <button class="btn-back" onclick="window.location.href='menu.html'">
+                <span class="material-symbols-outlined">arrow_back</span> Back to Menu
+            </button>
+        </div>
+    </header>
+
+    <div class="account-container">
+        <!-- Profile Section -->
+        <section class="profile-section">
+            <div class="profile-card">
+                <div class="profile-avatar">
+                    <span class="material-symbols-outlined text-5xl">account_circle</span>
+                </div>
+                <div class="profile-info">
+                    <h2 id="profileName">Guest User</h2>
+                    <p id="profileEmail" class="email-text">Not logged in</p>
+                    <p id="profilePhone" class="phone-text">-</p>
+                </div>
+                <button class="btn-edit-profile" id="editProfileBtn">
+                    <span class="material-symbols-outlined">edit</span> Edit
+                </button>
+            </div>
+        </section>
+
+        <!-- Tier Status Section -->
+        <section class="tier-section">
+            <div class="tier-header">
+                <h2>Membership Status</h2>
+                <a href="#tier-benefits" class="view-benefits-link">View All Benefits</a>
+            </div>
+
+            <div class="tier-card">
+                <div class="tier-badge" id="tierBadge">
+                    <span class="tier-icon" id="tierIcon">🥉</span>
+                    <span class="tier-name" id="tierName">Bronze</span>
+                </div>
+
+                <div class="tier-details">
+                    <p class="tier-description" id="tierDescription">
+                        Get started with exclusive discounts and rewards!
+                    </p>
+
+                    <div class="tier-progress">
+                        <div class="progress-label">
+                            <span>Spending to Next Tier</span>
+                            <span id="spendingTarget">₱1,500 of ₱5,000</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill" style="width: 30%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="tier-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Member Since</span>
+                            <span class="stat-value" id="memberSince">Today</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Total Spent</span>
+                            <span class="stat-value" id="totalSpent">₱0.00</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Loyalty Points</span>
+                            <span class="stat-value" id="loyaltyPoints">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upgrade Option -->
+            <div class="upgrade-cta" id="upgradeCTA" style="display: none;">
+                <h3>Ready to unlock more benefits?</h3>
+                <p id="upgradeCTAText">Spend ₱1,500 more to reach Silver tier</p>
+                <button class="btn-learn-more" onclick="document.getElementById('tier-benefits').scrollIntoView({behavior: 'smooth'})">
+                    Learn About Premium Tiers
+                </button>
+            </div>
+        </section>
+
+        <!-- Tier Benefits Section -->
+        <section class="benefits-section" id="tier-benefits">
+            <h2>Tier Benefits Comparison</h2>
+            <div class="benefits-comparison">
+                <div class="benefit-tier" id="bronzeBenefit">
+                    <div class="benefit-tier-header bronze">
+                        <span class="benefit-tier-icon">🥉</span>
+                        <h3>Bronze</h3>
+                    </div>
+                    <ul class="benefit-list">
+                        <li><span class="material-symbols-outlined">check_circle</span> 5% discount on all orders</li>
+                        <li><span class="material-symbols-outlined">check_circle</span> Free delivery on orders ≥ ₱500</li>
+                        <li><span class="material-symbols-outlined">check_circle</span> Birthday bonus: 10% off</li>
+                        <li><span class="material-symbols-outlined">check_circle</span> Weekly email newsletters</li>
+                    </ul>
+                </div>
+
+                <div class="benefit-tier">
+                    <div class="benefit-tier-header silver">
+                        <span class="benefit-tier-icon">🥈</span>
+                        <h3>Silver</h3>
+                    </div>
+                    <ul class="benefit-list">
+                        <li><span class="material-symbols-outlined">check_circle</span> 10% discount on all orders</li>
+                        <li><span class="material-symbols-outlined">check_circle</span> Free delivery on orders ≥ ₱300</li>
+                        <li><span class="material-symbols-outlined">check_circle</span> Birthday bonus: 15% off</li>
+                        <li><span class="material-symbols-outlined">check_circle</span> Early access to new menu items</li>
+                        <li><span class="material-symbols-outlined">check_circle</span> Exclusive Silver-only deals</li>
+                    </ul>
+                </div>
+
+                <div class="benefit-tier">
+                    <div class="benefit-tier-header gold">
+                        <span class="benefit-tier-icon">🥇</span>
+                        <h3>Gold</h3>
+                    </div>
+                    <ul class="benefit-list">
+                        <li><span class="material-symbols-outlined">check_circle</span> 15% discount on all orders</li>
+                        <li><span class="material-symbols-outlined">check_circle</span> Free delivery on all orders</li>
+                        <li><span class="material-symbols-outlined">check_circle</span> Birthday bonus: 25% off</li>
+                        <li><span class="material-symbols-outlined">check_circle</span> Priority customer support</li>
+                        <li><span class="material-symbols-outlined">check_circle</span> Exclusive Gold events & tastings</li>
+                        <li><span class="material-symbols-outlined">check_circle</span> Double loyalty points</li>
+                    </ul>
+                </div>
+
+                <div class="benefit-tier">
+                    <div class="benefit-tier-header platinum">
+                        <span class="benefit-tier-icon">💎</span>
+                        <h3>Platinum</h3>
+                    </div>
+                    <ul class="benefit-list">
+                        <li><span class="material-symbols-outlined">check_circle</span> 20% discount on all orders</li>
+                        <li><span class="material-symbols-outlined">check_circle</span> Free delivery + express delivery</li>
+                        <li><span class="material-symbols-outlined">check_circle</span> Birthday bonus: 30% off + free item</li>
+                        <li><span class="material-symbols-outlined">check_circle</span> VIP customer support (24/7)</li>
+                        <li><span class="material-symbols-outlined">check_circle</span> Personal account manager</li>
+                        <li><span class="material-symbols-outlined">check_circle</span> Triple loyalty points</li>
+                        <li><span class="material-symbols-outlined">check_circle</span> Exclusive VIP discount code monthly</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Billing Section -->
+        <section class="billing-section">
+            <h2>Billing & Rewards</h2>
+            <div class="billing-cards">
+                <div class="billing-card">
+                    <div class="billing-card-header">
+                        <span class="material-symbols-outlined">card_giftcard</span>
+                        <h3>Loyalty Points</h3>
+                    </div>
+                    <div class="billing-card-content">
+                        <div class="card-stat">
+                            <span class="stat-label">Available Points</span>
+                            <span class="stat-value" id="availablePoints">0</span>
+                        </div>
+                        <p class="stat-helper">Earn 1 point per ₱50 spent. Redeem for discounts!</p>
+                    </div>
+                </div>
+
+                <div class="billing-card">
+                    <div class="billing-card-header">
+                        <span class="material-symbols-outlined">local_offer</span>
+                        <h3>Active Promotions</h3>
+                    </div>
+                    <div class="billing-card-content">
+                        <ul class="promo-list">
+                            <li>✓ Friday Special: Extra 5% off</li>
+                            <li>✓ Referral Bonus: ₱100 per friend</li>
+                            <li>✓ Bundle Deal: Buy 2 get 10% off</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="billing-card">
+                    <div class="billing-card-header">
+                        <span class="material-symbols-outlined">payments</span>
+                        <h3>Payment Methods</h3>
+                    </div>
+                    <div class="billing-card-content">
+                        <button class="btn-secondary" style="width: 100%; margin-top: 10px;">
+                            <span class="material-symbols-outlined">add</span> Add Payment Method
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Account Settings Section -->
+        <section class="settings-section">
+            <h2>Account Settings</h2>
+            <div class="settings-form">
+                <div class="form-group">
+                    <label for="notifEmail">Email Notifications</label>
+                    <input type="checkbox" id="notifEmail" checked>
+                </div>
+                <div class="form-group">
+                    <label for="notifSMS">SMS Notifications</label>
+                    <input type="checkbox" id="notifSMS">
+                </div>
+                <div class="form-group">
+                    <label for="notifPromo">Promotional Emails</label>
+                    <input type="checkbox" id="notifPromo" checked>
+                </div>
+                <button class="btn-primary" id="saveSettingsBtn">Save Settings</button>
+                <button class="btn-danger" id="logoutBtn">Logout</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div id="editProfileModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Profile</h2>
+                <button class="modal-close" onclick="closeModal('editProfileModal')">&times;</button>
+            </div>
+            <form id="editProfileForm" class="edit-profile-form">
+                <div class="form-group">
+                    <label for="editName">Full Name</label>
+                    <input type="text" id="editName" required>
+                </div>
+                <div class="form-group">
+                    <label for="editEmail">Email</label>
+                    <input type="email" id="editEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="editPhone">Phone Number</label>
+                    <input type="tel" id="editPhone">
+                </div>
+                <div class="modal-actions">
+                    <button type="submit" class="btn-primary">Save Changes</button>
+                    <button type="button" class="btn-secondary" onclick="closeModal('editProfileModal')">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/account.js"></script>
+</body>
+
+</html>

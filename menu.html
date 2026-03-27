@@ -12,18 +12,25 @@
 
 <body>
     <header class="main-header">
-        <h1><span class="material-symbols-outlined text-2xl" style="color: var(--clr-primary);">
-                restaurant</span> Friedays Bocaue Menu
-        </h1>
-        <div class="user-greeting" id="userGreeting">Welcome!</div>
+        <div class="header-wrapper">
+            <h1><span class="material-symbols-outlined text-2xl" style="color: var(--clr-primary);">
+                    restaurant</span> Friedays Bocaue Menu
+            </h1>
+            <div class="header-actions">
+                <div class="user-greeting" id="userGreeting">Welcome!</div>
+                <a href="account.html" class="account-link" title="View Account">
+                    <span class="material-symbols-outlined">account_circle</span>
+                </a>
+            </div>
+        </div>
     </header>
 
     <div class="menu-layout">
         <main class="menu-section">
             <div class="menu-controls">
                 <div class="search-box">
+                    <span class="material-symbols-outlined">search</span>
                     <input type="text" id="menuSearch" placeholder="Search for food, drinks, etc...">
-                    <span class="search-icon">🔍</span>
                 </div>
 
                 <div class="filter-container">
