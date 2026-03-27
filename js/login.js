@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     togglePasswordBtn.addEventListener('click', () => {
         const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
         passwordInput.setAttribute('type', type);
-        togglePasswordBtn.textContent = type === 'password' ? '👁️' : '🙈';
+        togglePasswordBtn.innerHTML = type === 'password' ? '<span class="material-symbols-outlined" style="font-size:24px;">visibility</span>' : '<span class="material-symbols-outlined" style="font-size:24px;">visibility_off</span>';
     });
 
     // Handle Login Submit
