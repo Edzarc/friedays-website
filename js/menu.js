@@ -106,8 +106,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="items-grid">
                         ${filteredItems.map(item => `
                             <div class="menu-card">
-                                <img src="https://placehold.co/300x200/fffbeb/ea580c?text=${encodeURIComponent(item.name)}" alt="${item.name}" class="menu-img">
+                                <img src="https://www.shutterstock.com/image-vector/orange-geometric-food-tangerine-flat-260nw-2570904485.jpg?text=${encodeURIComponent(item.name)}" alt="${item.name}" class="menu-img">
                                 <div class="menu-info">
+                                
                                     <div class="item-name">${item.name}</div>
                                     <div class="item-price">${formatMoney(item.price)}</div>
                                     <button class="btn-secondary" onclick="addToCart(${item.id}, '${item.name}', ${item.price})"><span class="material-symbols-outlined">shopping_cart</span> Add to Cart</button>
