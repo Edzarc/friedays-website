@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Email - Friedays Bocaue</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card auth-card-small">
+            <div class="brand-header">
+                <h1>Friedays Bocaue</h1>
+                <p>Email Verification</p>
+            </div>
+
+            <div id="verifying" class="loading-box">
+                <p>⏳ Verifying your email...</p>
+            </div>
+
+            <div id="success" style="display: none;" class="success-box">
+                <p>✅ <strong>Email verified successfully!</strong></p>
+                <p>Your account is now active. You can start ordering from Friedays.</p>
+                <a href="index.html" class="btn-primary">Go to Login</a>
+            </div>
+
+            <div id="error" style="display: none;" class="error-box">
+                <p id="errorMessage">❌ Something went wrong while verifying your email.</p>
+                <a href="register.html" class="btn-primary">Back to Registration</a>
+            </div>
+
+            <p class="auth-link" id="backLink" style="display: none;">
+                <a href="index.html">Back to login</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

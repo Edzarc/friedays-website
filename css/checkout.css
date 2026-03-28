@@ -220,30 +220,48 @@
 
 .radio-group {
     display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
 }
 
 .radio-group label {
-    display: flex;
+    position: relative;
+    display: inline-flex;
     align-items: center;
-    gap: 0.75rem;
-    font-weight: 400;
     cursor: pointer;
-    padding: 0.75rem;
-    border-radius: var(--radius);
-    transition: background-color 0.2s;
-}
-
-.radio-group label:hover {
-    background-color: var(--clr-background);
+    border-radius: 999px;
+    overflow: hidden;
 }
 
 .radio-group input[type="radio"] {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    accent-color: var(--clr-primary);
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.radio-group span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.65rem 1rem;
+    border-radius: 999px;
+    border: 1px solid var(--clr-border);
+    background: var(--clr-background);
+    color: var(--clr-text);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.radio-group label:hover span {
+    background-color: rgba(249, 116, 21, 0.08);
+}
+
+.radio-group input[type="radio"]:checked + span {
+    background-color: rgba(249, 116, 21, 0.16);
+    border-color: var(--clr-primary);
+    color: var(--clr-primary);
 }
 
 /* ============================================================================

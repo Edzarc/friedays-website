@@ -38,6 +38,16 @@ let checkoutState = {
 function initializeCheckout() {
     // Load customer data
     let customer = Storage.get('friedays_user');
+    if (typeof customer === 'string') {
+        try {
+            customer = JSON.parse(customer);
+        } catch (error) {
+            console.warn('Stored user was a JSON string, could not parse:', error);
+        }
+    }
+
+    customer = normalizeCheckoutCustomer(customer);
+
     if (!customer) {
         const sessionUser = Storage.get('friedays_session');
         customer = accountModule.createUserAccount({
@@ -45,6 +55,12 @@ function initializeCheckout() {
         });
         Storage.set('friedays_user', customer);
     }
+
+    if (!customer.name && (customer.first_name || customer.last_name)) {
+        customer.name = [customer.first_name, customer.last_name].filter(Boolean).join(' ');
+    }
+
+    Storage.set('friedays_user', customer);
     checkoutState.customer = customer;
 
     // Load cart
@@ -67,6 +83,26 @@ function setOrderTypeSelection() {
             orderTypeRadio.checked = true;
         }
     }
+}
+
+function normalizeCheckoutCustomer(customer) {
+    if (!customer || typeof customer !== 'object') return null;
+
+    return {
+        id: customer.id || `user_${Date.now()}`,
+        name: customer.name || [customer.first_name, customer.last_name].filter(Boolean).join(' ') || 'Guest User',
+        email: customer.email || customer.user_email || '',
+        phone: customer.phone || customer.phone_number || '',
+        tier: customer.tier || 'BRONZE',
+        totalSpent: typeof customer.totalSpent === 'number' ? customer.totalSpent : Number(customer.totalSpent) || 0,
+        loyaltyPoints: typeof customer.loyaltyPoints === 'number' ? customer.loyaltyPoints : Number(customer.loyaltyPoints) || 0,
+        orderHistory: Array.isArray(customer.orderHistory) ? customer.orderHistory : [],
+        preferences: customer.preferences || {
+            emailNotifications: true,
+            smsNotifications: false,
+            promotionalEmails: true
+        }
+    };
 }
 
 // ============================================================================
