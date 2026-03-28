@@ -82,7 +82,7 @@
     border-bottom: 2px solid var(--clr-border);
     padding-bottom: 0.5rem;
     margin-bottom: 1.5rem;
-    color: var(--clr-primary);
+    color: var(--clr-secondary);
 }
 
 .items-grid {
