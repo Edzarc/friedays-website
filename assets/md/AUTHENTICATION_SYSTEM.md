@@ -114,7 +114,7 @@ FACEBOOK_REDIRECT_URI=https://app.friedays.com/auth/facebook/callback
   "email_verified": true,
   "given_name": "John",
   "family_name": "Doe",
-  "picture": "https://lh3.googleusercontent.com/...",
+  "picture": "https://lsh3.googleusercontent.com/...",
   "locale": "en_US"
 }
 ```
